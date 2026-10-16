@@ -11,8 +11,8 @@ Header lines before the first slide are read:
 import json, re, sys
 from pathlib import Path
 
-SLIDE = re.compile(r"-{2,}\s*([0-9]+)")
-BARE = re.compile(r"-{2,}")
+SLIDE = re.compile(r"---\s*([0-9]+)")
+BARE = re.compile(r"---")
 profiles, ids, bad = [], set(), False
 
 for f in sorted(Path("profiles").glob("*.dhikr")):
