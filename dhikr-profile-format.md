@@ -6,6 +6,11 @@ A `.dhikr` file is a plain UTF-8 text file that describes one weecounter profile
 
 ```
 # Morning Adhkar
+@id morning-adhkar
+@version 1
+@author Your Name
+@desc One or two lines about the profile.
+@desc More lines are joined with line breaks.
 
 ---1
 # Ayat al-Kursi
@@ -22,7 +27,7 @@ A `.dhikr` file is a plain UTF-8 text file that describes one weecounter profile
 Ignored: this text sits outside any slide.
 ```
 
-The first `# Name` line of the file is the profile name, so the file above is called "Morning Adhkar".
+The first `# Name` line of the file is the profile name, so the file above is called "Morning Adhkar". The `@` lines under it are header fields, described below.
 
 ## Structure
 
@@ -55,7 +60,7 @@ Lines at the top of the file, before the first `---N`, can carry details about t
 
 The description pops up once the first time a profile is opened. You can read it again by holding the profile in the profile list, or by tapping it in the browse screen. Author and version show with it.
 
-All header lines are optional, and files without them work as before.
+All header lines are optional in the app, and files without them work as before. Profiles added to the profile repo should start with a header like the one in the quick example, see [Adding a profile to the repo](#adding-a-profile-to-the-repo).
 
 ## Title
 
@@ -103,13 +108,33 @@ Each alternative can have its own `[n]` prefix. Blank alternatives are dropped.
 
 Lines that are not part of a view (no `|`) show in every view. Views are numbered from 1, and the number of views is the largest number of alternatives on any single line.
 
+## Adding a profile to the repo
+
+[#adding-a-profile-to-the-repo](#adding-a-profile-to-the-repo)
+
+Profiles for the browse screen live in the `profiles/` folder of the profile repo, one `.dhikr` file each. Open a pull request or add the file yourself.
+
+- Start the file with a header: the `# Name` line, then `@id`, `@version`, `@author` and `@desc`, as in the quick example.
+- Never change `@id` once the profile is published, and raise `@version` every time the file changes.
+- Do not edit `index.json` by hand. The **Build index** action rebuilds it on every push, reading the header lines before the first slide.
+- Translations and texts must be yours to share, or free to redistribute.
+
+The index build fails, and the profile is not listed, when:
+
+- the file has no slide with a count above 0,
+- `@id` is used by another profile, or has characters other than letters, digits, `-`, `_` and `.`,
+- `@version` is not a whole number.
+
+If a header line is missing, the index uses the file name (without `.dhikr`) as the name and as the id, and 1 as the version. Set `@id` yourself, otherwise renaming the file changes the id.
+
 ## Checklist for a new profile
 
-1. Start with `# Profile Name`.
+1. Start with `# Profile Name`, then the `@id`, `@version`, `@author` and `@desc` header lines.
 2. For each slide, write `---N`, then `# Slide title`.
 3. Put the text lines below the title. Use `|` for alternative views, and `[n]` if a line needs a size.
 4. End each slide with `---` if you want anything after it to be ignored, or leave it out to run into the next slide.
-5. Check that every count is above 0 unless you want the slide hidden.
+5. Check that every count is above 0 unless you want the slide hidden. At least one slide needs a count above 0.
+6. For the profile repo, save the file in `profiles/` with the `.dhikr` extension. When you change it later, raise `@version` and keep `@id`.
 
 ## Version
 
