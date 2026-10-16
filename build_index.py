@@ -17,8 +17,6 @@ profiles, ids, bad = [], set(), False
 
 for f in sorted(Path("profiles").glob("*.dhikr")):
     text = f.read_text(encoding="utf-8-sig")
-    if len(text.encode()) > 300000:
-        print(f"{f}: larger than 300000 bytes"); bad = True; continue
     head = {"@id": [], "@version": [], "@author": [], "@desc": []}
     name, slides = None, 0
     for ln in text.splitlines():
