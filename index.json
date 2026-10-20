@@ -2,6 +2,15 @@
  "v": 1,
  "profiles": [
   {
+   "id": "evening-adhkar",
+   "name": "Evening Adhkar",
+   "ver": 1,
+   "author": "santarl",
+   "desc": "The evening remembrance of the Sunnah, for the end of the day.\nOrdered from the most to the least authentic: Quran and Sahih first, then reports with weaker or disputed chains. Swipe up or down for the meaning, the transliteration, then the grading, reward and source of each slide.\nArabic follows Hisn al-Muslim; Quranic text is the Tanzil Uthmani text (tanzil.net), unmodified. Translation and transliteration are original.",
+   "slides": 23,
+   "f": "profiles/evening-adhkar.dhikr"
+  },
+  {
    "id": "morning-adhkar",
    "name": "Morning Adhkar",
    "ver": 1,
