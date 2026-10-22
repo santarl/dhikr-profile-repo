@@ -2,6 +2,15 @@
  "v": 1,
  "profiles": [
   {
+   "id": "before-sleep-adhkar",
+   "name": "Before Sleep Adhkar",
+   "ver": 1,
+   "author": "santarl",
+   "desc": "The remembrance of the Sunnah before sleep, for protection through the night.\nOrdered from the most authentic. Swipe up or down for the meaning, the transliteration, then the grading, reward and source of each slide.\nArabic follows Hisn al-Muslim; Quranic text is the Tanzil Uthmani text (tanzil.net), unmodified. Translation and transliteration are original.",
+   "slides": 14,
+   "f": "profiles/before-sleep-adhkar.dhikr"
+  },
+  {
    "id": "evening-adhkar",
    "name": "Evening Adhkar",
    "ver": 1,
